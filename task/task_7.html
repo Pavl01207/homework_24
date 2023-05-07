@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 7</title>
+</head>
+<body>
+	<script>
+		//Дано інформацію про відвідувачів деякого сайту (для кожного відвідувача зберігається логін). 
+		//Підрахувати для кожного клієнта кількість відвідувань.
+		let usersLogin = [
+			'john13',
+			'pav111',
+			'pav111',
+			'kate_1',
+			'123king',
+			'john13',
+			'cool120',
+			'pav111',
+			'cool120',
+			'123king',
+			'pav111',
+			'kate_1',
+			'john13']
+		let map = new Map()
+		for(const login of usersLogin){
+			let loginCount = map.get(login) || 0
+			map.set(login,loginCount + 1)
+		}
+		console.log(map)
+		map.forEach((value,key,map)=>{
+			document.write(`<p>Відвідувач: <span>${key}</span>. Кількість відвідувань: <span>${value}</span>.</p>`)
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 9</title>
+</head>
+<body>
+	<script>
+		//Дано масив показів температур. Підрахувати кількість входжень кожного із показів
+		let temperatures = [12.4, 24.9, 10.6, 12.4, 24.9, 12.4, 10.6, 11.9]
+		let map = new Map()
+		for(const temp of temperatures){
+			let tempCount = map.get(temp)||0
+			map.set(temp,tempCount+1)
+		}
+		console.log(map)
+		map.forEach((value,key,map)=>{
+			document.write(`<p>Показ: <span>${key}</span>, кількість входжень: <span>${value}</span>.</p>`)
+		})
+		//Заокруглити вверх значення та підрахувати кількість різних показів.
+		let roundTemperatures = temperatures.map((element)=>Math.round(element))
+		let set = new Set()
+		for(const temp of roundTemperatures){
+			set.add(temp)
+		}
+		document.write(`<p>Кількість різних показів після заокруглення: <span>${set.size}</span>.</p>`)
+	</script>
+</body>
+</html>

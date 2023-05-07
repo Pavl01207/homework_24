@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 10</title>
+</head>
+<body>
+	<script>
+		/*Дано два списки прізвищ студентів, що відвідують гуртки з математики і історії. 
+		Підрахувати скільки студентів з гуртка з історії також відвідують гурток з математики. 
+		Також підрахувати скільки всього студентів відвідують хоча б один гурток. */
+		let mathCircle = [
+			'Палагнюк',
+			'Пуздряк',
+			'Леошко',
+			'Хортюк',
+			'Кішпан',
+			'Гарас',
+			'Мунтян',
+			'Пепеля'
+		]
+		let historyCircle = [
+			'Пуздряк',
+			'Леошко',
+			'Кішпан',
+			'Гарас',
+			'Пепеля',
+			'Якимчук',
+			'Горбань'
+		]
+		//
+		let setMath = new Set()
+		for(const stud of mathCircle){
+			setMath.add(stud)
+		}
+		console.log(setMath)
+		//
+		let setHist = new Set()
+		for(const stud of historyCircle){
+			setHist.add(stud)
+		}
+		console.log(setHist)
+		let count = 0
+		for(let value of mathCircle){
+			if(setHist.has(value)) count++
+		}
+		console.log(count)
+		document.write(`<p><span>${count}</span> студентів з гуртка історії також відвідують гурток з математики.</p>`)
+		//
+		let totalCircle = historyCircle.concat(mathCircle)
+		let totalSet = new Set()
+		for(const stud of totalCircle){
+			totalSet.add(stud)
+		}
+		document.write(`<p><span>${totalSet.size}</span> студентів відвідують хоча б один гурток.</p>`)
+	</script>
+</body>
+</html>

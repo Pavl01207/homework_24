@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 5</title>
+</head>
+<body>
+	<script>
+		//Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і максимальне.
+		let studentsAge = [17,17,'18','18', '18', 21, '22', '22', '18', 20, 20, '22', 21]
+		let map = new Map()
+		for(const stud of studentsAge){
+			let ageCount = map.get(stud) || 0
+			map.set(stud,ageCount + 1)
+		}
+		for(const age of map){
+			document.write(`<p><span>${age}</span></p>`)
+		}
+		let max = Math.max(...(Array.from(map.keys())))
+		document.write(`<p>Максимальне значення: <span>${max}</span></p>`)
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 12</title>
+</head>
+<body>
+	<script>
+		/*Зберігати у пам’яті список справ, які користувачу треба виконати (зберігати у localStorage). 
+		Періодично випадковим чином вибирати якусь з справ і виводити користувачу (з використанням confirm). 
+		Якщо користувач натискає на «Ок», то видаляти цю задачу.*/
+		let toDoList = [
+			'Повторити методи масивів',
+			'Повторити методи сортування',
+			'Засвоїти Promise',
+			'Знайти де можна скористатись рекурсією',
+			'Зрозуміти де векористовувати Map,Set,WeakMap'
+		]
+		for(let i = 0;i < toDoList.length; i++){
+			localStorage.setItem(`Task${i}`,`${toDoList[i]}`)
+		}
+		setInterval(
+			() => {
+			for(let i = 0; i < localStorage.length; i++){
+			let key = localStorage.key(i)
+			let message = confirm(`${key} - ${localStorage.getItem(key)}`)
+			if(message) localStorage.removeItem(key)
+		}
+			},5000
+		)
+	</script>
+</body>
+</html>

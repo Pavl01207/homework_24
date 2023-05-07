@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 6</title>
+</head>
+<body>
+	<script>
+		//Дано масив книг (назва, рік видання, автор). Підрахувати кількість книг для кожного автора.
+		let booksList = [
+			['Аушвіц',2022,'Лоренс Ріс'],
+			['Голокост',2023,'Лоренс Ріс'],
+			['За лаштунками війни',2022,'Лоренс Ріс'],
+			['Гітлер і Сталін',2021,'Лоренс Ріс'],
+			['Після війни',2020,'Тоні Джадт'],
+			['Роздуми про XX століття',2020,'Тоні Джадт'],
+			['Площі і вежі',2019,'Ніл Фергюсон'],
+			['Цивілізація',2018,'Ніл Фергюсон'],
+			['Імперія',2019,'Ніл Фергюсон'],
+			['Еволюція грошей',2020,'Ніл Фергюсон'],
+			['Велич і ницість',2022,'Ерік Ларсон'],
+			['Диявол у білому домі',2018,'Ерік Ларсон'],
+			['Друга світова війна',2022,'Ентоні Бівор'],
+			['Арденська операція',2019,'Ентоні Бівор']
+		]
+		let map = new Map()
+		for(const el of booksList){
+			let authorCount = map.get(el[2])||0
+			map.set(el[2],authorCount+1)
+		}
+		console.log(map)
+		map.forEach((value,key,map)=>{
+			document.write(`<p>Автор: <span>${key}</span>. Кількість книг: <span>${value}</span>.</p>`)
+		})
+	</script>
+</body>
+</html>

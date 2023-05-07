@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 4</title>
+</head>
+<body>
+	<script>
+		//Вводиться велике число. Кожні 3 розряди відділяти пробілом.
+		//  7457896524 => 7 457 896 524
+		document.write('<p>7457896524</p>')
+		function replacer(match, p1, p2, p3, p4, offset, string){
+			return [p1,p2,p3,p4].join(' ')
+		}
+		let res = '7457896524'.replace(/(\d{1})(\d{3})(\d{3})(\d{3})/,replacer)
+		document.write(`<p><span>${res}</span></p>`)
+	</script>
+</body>
+</html>

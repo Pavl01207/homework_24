@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 8</title>
+</head>
+<body>
+	<script>
+		//Дано масив студентів (піб, курс, факультет). 
+		//Підрахувати кількість різних факультетів, та кількість студентів кожного з курсів. 
+		let studentsList = [
+			['Палагнюк Павло Юрійович',5,'Комп\'ютерна інженерія'],
+			['Палагнюк Катерина Костянтинівна',1,'Фармацевтичний'],
+			['Палагнюк Євген Юрійович',5,'Іноземних мов'],
+			['Пуздряк Олександр Костянтинович',2,'Іноземних мов'],
+			['Хомецька Тетяна Миколаївна',2,'Бухгалтерський облік'],
+			['Карп Орися Олександрівна',5,'Текстильний'],
+			['Палагнюк Вероніка Євгенівна',1,'Комп\'ютерна інженерія'],
+			['Пуздряк Ольга Аврелівна',1,'Фармацевтичний']
+		]
+		let map = new Map()
+		for(const el of studentsList){
+			let depCount = map.get(el[2])||0
+			map.set(el[2],depCount+1)
+		}
+		console.log(map)
+		document.write(`<p>Кількість різних факультетів: <span>${map.size}</span>.</p>`)
+		map.forEach((value,key,map)=>{
+			document.write(`<p>Факультет: <span>${key}</span>, кількість студентів: <span>${value}</span>.</p>`)
+		})
+	</script>
+</body>
+</html>

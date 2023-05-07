@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 11</title>
+</head>
+<body>
+	<style>
+		.container{
+			display: flex;
+			align-items: flex-end;
+			gap: 10px;
+		}
+		#color{
+			display: inline-block;
+			margin-top: 100px;
+			width: 150px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: whitesmoke;
+			padding: 5px;
+			cursor: crosshair;
+			border: 2px solid royalblue;
+		}
+		#btn{
+			width: 70px;
+			height: 30px;
+			text-transform: uppercase;
+			text-align: center;
+			font-family: "Raleway",serif;
+			font-weight: 700;
+			border-radius: 5px;
+			border: 1px solid royalblue;
+			cursor: pointer;
+		}
+		#btn:hover{
+			background-color: royalblue;
+			color: whitesmoke;
+			border: 1px solid whitesmoke;
+		}
+		.res{
+			color: royalblue;
+			font-weight: 700;
+		}
+		#res{
+			color: whitesmoke;
+		}
+	</style>
+	<div class="container">
+		<input type="color" name="color" id="color">
+		<button id="btn">Change</button>
+		<div class="res">Кількість змін кольору: <span id="res"></span></div>
+	</div>
+	<script>
+		/*Користувач може змінювати колір фону, що вибирає користувач з використанням <input type="color">.
+		Зберігати цей колір і відновлювати при наступному відкритті. 
+		Також зберігати і відображати кількість змін протягом одного сеансу.*/
+		function changeColor(){
+			let colorValue = document.getElementById('color').value
+			document.body.style.backgroundColor = colorValue
+			localStorage.setItem('userColor',colorValue)
+			sessionStorage.setItem('userColor',colorValue)
+		}
+		window.onload = function(){
+		btn.onclick = changeColor
+		//
+		let num = 0
+		window.captureEvents(Event.CLICK)
+		window.onclick = (event) => {
+		if(event.target.tagName === 'BUTTON') num++
+		console.log(num)
+		sessionStorage.setItem('changeColor',num)
+		res.innerText = num
+		}
+		}
+	</script>
+</body>
+</html>

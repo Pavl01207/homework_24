@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 1</title>
+</head>
+<body>
+	<script>
+	/*Дано масив рядкових представлень чисел (тобто масив чисел у лапках (string). 
+	З використанням перевірки за допомогою регулярних виразів і груп підрахувати кількість тих, 
+	у яких перша і остання літери однакові.*/
+	const str = ['5785','09834','1232309','23239','34349','123239','0248','3224347','29892','09340','335353','198881','34343432']
+	const regex = /(\d).*\1$/
+	const res = str.reduce((prevCount,num)=>
+	regex.test(num) ? prevCount + 1 : prevCount,0)
+	for(const num of str){
+		document.write(`<span>${num}</span>`)
+	}
+	document.write(`<p>Кількість рядкових чисел,у яких перша і остання літери однакові: <span>${res}</span>.</p>`)
+	</script>
+</body>
+</html>

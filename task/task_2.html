@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 2</title>
+</head>
+<body>
+	<script>
+		//Замінити номер розділяючи послідовності цифр дефісом згідно з форматом
+		//0504546626 => +380-50-45-466-26
+		let str = '0504546626'
+		document.write(`<p>${str}</p>`)
+		let res = str.replace(/(\d{1})(\d{2})(\d{2})(\d{3})(\d{2})$/, "+38$1-$2-$3-$4-$5")
+		document.write(`<p><span>${res}</span></p>`)
+	</script>
+</body>
+</html>
